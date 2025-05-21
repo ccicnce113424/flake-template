@@ -12,12 +12,11 @@ rec {
   };
 
   outputs =
-    inputs@{ flake-parts, treefmt-nix, ... }:
+    inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       _module.args = { inherit nixConfig; };
       systems = [ "x86_64-linux" ];
       imports = [
-        treefmt-nix.flakeModule
         ./treefmt.nix
       ];
       flake.templates.default = {
