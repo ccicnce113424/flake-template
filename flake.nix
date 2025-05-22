@@ -18,11 +18,24 @@ rec {
       systems = [ "x86_64-linux" ];
       imports = [
         ./treefmt.nix
+        # optional: introduce nixpkgs into perSystem
+        ./nixpkgs.nix
       ];
       flake.templates.default = {
         path = ./.;
         inherit description;
       };
+
+      # test package
+      perSystem =
+        { self', pkgs, ... }:
+        {
+          packages.hello = pkgs.writeShellScriptBin "hello" "echo Hello, flake!";
+          apps.hello = {
+            type = "app";
+            program = "${self'.packages.hello}/bin/hello";
+          };
+        };
     };
 
   nixConfig = {
