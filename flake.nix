@@ -18,8 +18,8 @@ rec {
       systems = [ "x86_64-linux" ];
       imports = [
         ./treefmt.nix
+        # optional: introduce nixpkgs into perSystem
         ./nixpkgs.nix
-        ./devshell.nix
       ];
       flake.templates.default = {
         path = ./.;
@@ -37,6 +37,7 @@ rec {
           };
           packages.default = self'.packages.hello;
           apps.default = self'.apps.hello;
+          devShells.default = pkgs.callPackage ./devshell.nix { };
         };
     };
 
