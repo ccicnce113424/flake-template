@@ -37,7 +37,7 @@ rec {
           };
           packages.default = self'.packages.hello;
           apps.default = self'.apps.hello;
-          devShells.default = pkgs.callPackage ./shell.nix { };
+          devShells.default = pkgs.callPackage ./devshell.nix { };
         };
     };
 
