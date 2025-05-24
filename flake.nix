@@ -35,6 +35,8 @@ rec {
             type = "app";
             program = "${self'.packages.hello}/bin/hello";
           };
+          packages.default = self'.packages.hello;
+          apps.default = self'.apps.hello;
           devShells.default = pkgs.callPackage ./shell.nix { };
         };
     };
