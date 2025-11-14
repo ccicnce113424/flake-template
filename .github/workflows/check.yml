@@ -19,7 +19,7 @@ jobs:
 
       - uses: wimpysworld/nothing-but-nix@v6
         with:
-          hatchet-protocol: "rampage"
+          hatchet-protocol: "cleave"
           nix-permission-edict: true
 
       - name: Install Nix
