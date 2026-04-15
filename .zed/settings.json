@@ -5,24 +5,24 @@
 {
   "languages": {
     "Nix": {
-      "language_servers": ["nixd", "!nil"]
-    }
+      "language_servers": ["nixd", "!nil"],
+    },
   },
   "lsp": {
     "nixd": {
       "settings": {
         "nixpkgs": {
-          "expr": "(builtins.getFlake (builtins.toString ./.)).currentSystem.nixpkgs"
+          "expr": "(builtins.getFlake (builtins.toString ./.)).currentSystem.nixpkgs",
         },
         "options": {
           "flake-parts": {
-            "expr": "(builtins.getFlake (builtins.toString ./.)).debug.options"
+            "expr": "(builtins.getFlake (builtins.toString ./.)).debug.options",
           },
           "flake-parts2": {
-            "expr": "(builtins.getFlake (builtins.toString ./.)).currentSystem.options"
-          }
-        }
-      }
-    }
-  }
+            "expr": "(builtins.getFlake (builtins.toString ./.)).currentSystem.options",
+          },
+        },
+      },
+    },
+  },
 }
